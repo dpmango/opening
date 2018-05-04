@@ -16,11 +16,8 @@ $(document).ready(function(){
     initHeaderScroll();
 
     initPopups();
-    initSliders();
     initScrollMonitor();
-    initMasks();
-    initSelectric();
-    initValidations();
+    initLazyLoad();
 
     // development helper
     _window.on('resize', debounce(setBreakpoint, 200))
@@ -28,7 +25,6 @@ $(document).ready(function(){
     // AVAILABLE in _components folder
     // copy paste in main.js and initialize here
     // initPerfectScrollbar();
-    // initLazyLoad();
     // initTeleport();
     // parseSvg();
     // revealFooter();
@@ -125,43 +121,6 @@ $(document).ready(function(){
     });
   }
 
-  //////////
-  // SLIDERS
-  //////////
-
-  function initSliders(){
-
-    // EXAMPLE SWIPER
-    new Swiper('[js-slider]', {
-      wrapperClass: "swiper-wrapper",
-      slideClass: "example-slide",
-      direction: 'horizontal',
-      loop: false,
-      watchOverflow: true,
-      setWrapperSize: false,
-      spaceBetween: 0,
-      slidesPerView: 'auto',
-      // loop: true,
-      normalizeSlideIndex: true,
-      // centeredSlides: true,
-      freeMode: true,
-      // effect: 'fade',
-      autoplay: {
-        delay: 5000,
-      },
-      navigation: {
-        nextEl: '.example-next',
-        prevEl: '.example-prev',
-      },
-      breakpoints: {
-        // when window width is <= 992px
-        992: {
-          autoHeight: true
-        }
-      }
-    })
-
-  }
 
   //////////
   // MODALS
@@ -192,20 +151,6 @@ $(document).ready(function(){
       }
     });
 
-    $('[js-popup-gallery]').magnificPopup({
-  		delegate: 'a',
-  		type: 'image',
-  		tLoading: 'Загрузка #%curr%...',
-  		mainClass: 'popup-buble',
-  		gallery: {
-  			enabled: true,
-  			navigateByImgClick: true,
-  			preload: [0,1]
-  		},
-  		image: {
-  			tError: '<a href="%url%">The image #%curr%</a> could not be loaded.'
-  		}
-  	});
   }
 
   function closeMfp(){
@@ -215,54 +160,6 @@ $(document).ready(function(){
   ////////////
   // UI
   ////////////
-
-  // textarea autoExpand
-  _document
-    .one('focus.autoExpand', '.ui-group textarea', function(){
-        var savedValue = this.value;
-        this.value = '';
-        this.baseScrollHeight = this.scrollHeight;
-        this.value = savedValue;
-    })
-    .on('input.autoExpand', '.ui-group textarea', function(){
-        var minRows = this.getAttribute('data-min-rows')|0, rows;
-        this.rows = minRows;
-        rows = Math.ceil((this.scrollHeight - this.baseScrollHeight) / 17);
-        this.rows = minRows + rows;
-    });
-
-  // Masked input
-  function initMasks(){
-    $("[js-dateMask]").mask("99.99.99",{placeholder:"ДД.ММ.ГГ"});
-    $("input[type='tel']").mask("+7 (000) 000-0000", {placeholder: "+7 (___) ___-____"});
-  }
-
-  // selectric
-  function initSelectric(){
-    $('select').selectric({
-      maxHeight: 300,
-      arrowButtonMarkup: '<b class="button"><svg class="ico ico-select-down"><use xlink:href="img/sprite.svg#ico-select-down"></use></svg></b>',
-
-      onInit: function(element, data){
-        var $elm = $(element),
-            $wrapper = $elm.closest('.' + data.classes.wrapper);
-
-        $wrapper.find('.label').html($elm.attr('placeholder'));
-      },
-      onBeforeOpen: function(element, data){
-        var $elm = $(element),
-            $wrapper = $elm.closest('.' + data.classes.wrapper);
-
-        $wrapper.find('.label').data('value', $wrapper.find('.label').html()).html($elm.attr('placeholder'));
-      },
-      onBeforeClose: function(element, data){
-        var $elm = $(element),
-            $wrapper = $elm.closest('.' + data.classes.wrapper);
-
-        $wrapper.find('.label').html($wrapper.find('.label').data('value'));
-      }
-    });
-  }
 
   ////////////
   // SCROLLMONITOR - WOW LIKE
@@ -305,100 +202,29 @@ $(document).ready(function(){
 
   }
 
-  ////////////////
-  // FORM VALIDATIONS
-  ////////////////
 
-  // jQuery validate plugin
-  // https://jqueryvalidation.org
-  function initValidations(){
-    // GENERIC FUNCTIONS
-    var validateErrorPlacement = function(error, element) {
-      error.addClass('ui-input__validation');
-      error.appendTo(element.parent("div"));
-    }
-    var validateHighlight = function(element) {
-      $(element).parent('div').addClass("has-error");
-    }
-    var validateUnhighlight = function(element) {
-      $(element).parent('div').removeClass("has-error");
-    }
-    var validateSubmitHandler = function(form) {
-      $(form).addClass('loading');
-      $.ajax({
-        type: "POST",
-        url: $(form).attr('action'),
-        data: $(form).serialize(),
-        success: function(response) {
-          $(form).removeClass('loading');
-          var data = $.parseJSON(response);
-          if (data.status == 'success') {
-            // do something I can't test
-          } else {
-              $(form).find('[data-error]').html(data.message).show();
-          }
-        }
-      });
-    }
 
-    var validatePhone = {
-      required: true,
-      normalizer: function(value) {
-          var PHONE_MASK = '+X (XXX) XXX-XXXX';
-          if (!value || value === PHONE_MASK) {
-              return value;
-          } else {
-              return value.replace(/[^\d]/g, '');
-          }
+  //////////
+  // LAZY LOAD
+  //////////
+  function initLazyLoad(){
+    _document.find('[js-lazy]').Lazy({
+      threshold: 500,
+      enableThrottle: true,
+      throttle: 100,
+      scrollDirection: 'vertical',
+      effect: 'fadeIn',
+      effectTime: 350,
+      // visibleOnly: true,
+      // placeholder: "data:image/gif;base64,R0lGODlhEALAPQAPzl5uLr9Nrl8e7...",
+      onError: function(element) {
+          console.log('error loading ' + element.data('src'));
       },
-      minlength: 11,
-      digits: true
-    }
-
-    ////////
-    // FORMS
-
-
-    /////////////////////
-    // REGISTRATION FORM
-    ////////////////////
-    $(".js-registration-form").validate({
-      errorPlacement: validateErrorPlacement,
-      highlight: validateHighlight,
-      unhighlight: validateUnhighlight,
-      submitHandler: validateSubmitHandler,
-      rules: {
-        last_name: "required",
-        first_name: "required",
-        email: {
-          required: true,
-          email: true
-        },
-        password: {
-          required: true,
-          minlength: 6,
-        }
-        // phone: validatePhone
-      },
-      messages: {
-        last_name: "Заполните это поле",
-        first_name: "Заполните это поле",
-        email: {
-            required: "Заполните это поле",
-            email: "Email содержит неправильный формат"
-        },
-        password: {
-            required: "Заполните это поле",
-            email: "Пароль мимимум 6 символов"
-        },
-        // phone: {
-        //     required: "Заполните это поле",
-        //     minlength: "Введите корректный телефон"
-        // }
+      beforeLoad: function(element){
+        // element.attr('style', '')
       }
     });
   }
-
 
   //////////
   // BARBA PJAX
@@ -483,22 +309,6 @@ $(document).ready(function(){
     $(window).resize();
   }
 
-  //////////
-  // MEDIA Condition helper function
-  //////////
-  function mediaCondition(cond){
-    var disabledBp;
-    var conditionMedia = cond.substring(1);
-    var conditionPosition = cond.substring(0, 1);
-
-    if (conditionPosition === "<") {
-      disabledBp = _window.width() < conditionMedia;
-    } else if (conditionPosition === ">") {
-      disabledBp = _window.width() > conditionMedia;
-    }
-
-    return disabledBp
-  }
 
   //////////
   // DEVELOPMENT HELPER
