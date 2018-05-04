@@ -15,10 +15,10 @@ $(document).ready(function(){
     updateHeaderActiveClass();
     initHeaderScroll();
 
-    initPopups();
+    // initPopups();
     initScrollMonitor();
     initLazyLoad();
-    initMap();
+    // initMap();
 
     // development helper
     _window.on('resize', debounce(setBreakpoint, 200))

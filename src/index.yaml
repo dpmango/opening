@@ -1,7 +1,9 @@
-ProjectTitle: Project-name
+ProjectTitle: Opening
 
 PageList:
 - file: homepage.html
-  ready: 100
+  ready: 10
 - file: page.html
   ready: 0
+- file: styleguide.html
+  ready: 100
