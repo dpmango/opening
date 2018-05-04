@@ -18,6 +18,7 @@ $(document).ready(function(){
     initPopups();
     initScrollMonitor();
     initLazyLoad();
+    initMap();
 
     // development helper
     _window.on('resize', debounce(setBreakpoint, 200))
@@ -328,6 +329,47 @@ $(document).ready(function(){
       setTimeout(function(){
         $('.dev-bp-debug').remove();
       },1500)
+    }
+  }
+
+  //////////
+  // YANDEX MAP
+  //////////
+  function initMap(){
+    var myMap,
+        myPlacemark;
+
+    if ( $('#ya-map').length > 0 ){
+      ymaps.ready(function(){
+        myMap = new ymaps.Map("ya-map", {
+          // нужно получить контакты с яндекс карты нужного адресса
+          center: [55.739483, 37.719603],
+          zoom: 14
+        });
+
+        // myMap.controls.remove('zoomControl');
+        myMap.controls.remove('trafficControl');
+        myMap.controls.remove('searchControl');
+        myMap.controls.remove('fullscreenControl');
+        myMap.controls.remove('rulerControl');
+        myMap.controls.remove('geolocationControl');
+        myMap.controls.remove('routeEditor');
+
+        myMap.behaviors.disable('scrollZoom');
+
+        myPlacemark = new ymaps.Placemark([55.739483, 37.719603], {
+          hintContent: 'Наш офис'
+        },
+        {
+          // стилизация маркера
+          iconLayout: 'default#image',
+          iconImageHref: 'img/mapMarker.png',
+          iconImageSize: [50, 70],
+          iconImageOffset: [-10, -50]
+        });
+
+        myMap.geoObjects.add(myPlacemark);
+      });
     }
   }
 
