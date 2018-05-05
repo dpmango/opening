@@ -1,14 +1,5 @@
-.fullpage
-	display: flex
-	align-items: center
-	height: 100vh
-	background: #333
-	outline: 1px solid red
-	// padding-top: 65px
-	justify-content: space-between
+.fullpage.fullpage--contacts
 	.left
-		width: 50%
-		height: 100%
 		background-color: #d0cfcd
 		background-image: url(../../img/bg-pattern-1.png)
 		background-size: cover
@@ -26,9 +17,6 @@
 		width: 50%
 		height: 100%
 		background: #fff
-#ya-map
-	width: 100%
-	min-height: 100% !important
 .contacts__link
 	font-size: 48px
 	color: $fontColor
@@ -38,18 +26,21 @@
 	&:hover
 		border-bottom: 1px solid $fontColor
 
+#ya-map
+	width: 100%
+	min-height: 100% !important
+
 +r($desktop)
 	.contacts__link
 		font-size: 36px
 +r($tablet)
 	.contacts__link
 		font-size: 30px
-	.fullpage
+	.fullpage.fullpage--contacts
 		flex-wrap: wrap
 		padding-top: 70px
 		.left
 			width: 100%
-			height: auto
 			align-self: flex-start
 		.right
 			width: 100%
@@ -59,12 +50,8 @@
 +r($mobile)
 	.contacts__link
 		font-size: 24px
-	.fullpage
+	.fullpage.fullpage--contacts
 		.left
 			p
 				font-size: 16px
 				margin-top: 15px
-
-.ymaps-2-1-62-copyrights-pane,
-.ymaps-2-1-62-controls-pane
-	display: none !important

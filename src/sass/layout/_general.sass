@@ -67,9 +67,19 @@ body, html
 
 h1
   font-family: 'TrajanPro3-Regular'
+  font-weight: 400
   font-size: 48px
   color: $fontColor
   line-height: 1.25
++r($desktop)
+  h1
+    font-size: 36px
++r($tablet)
+  h1
+    font-size: 30px
++r($mobile)
+  h1
+    font-size: 24px
 p
   font-family: 'TrajanPro3-Regular'
   font-size: 20px
@@ -80,3 +90,6 @@ p
   line-height: 1.25
   margin: 0
   text-align: center
++r($tablet)
+  p
+    font-size: 16px

@@ -5,6 +5,9 @@ PageList:
   ready: 10
 - file: contacts.html
   ready: 10
+- file: kaleidoscope.html
+  ready: 10
+  
 - file: page.html
   ready: 0
 - file: styleguide.html

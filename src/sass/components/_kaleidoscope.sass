@@ -1,0 +1,70 @@
+.fullpage.fullpage--kaleidoscope
+	align-items: flex-start
+	// margin-top: 40px
+	height: auto
+	h1
+		margin: 40px 0 0 0
+	.left
+		position: fixed
+		height: 100vh
+		background: url(../../img/bg-kaleidoscope.jpg) center center no-repeat
+		background-size: cover
+	.right
+		height: auto
+		margin-left: 50vw
+		padding: 70px 40px
+		background-color: #d0cfcd
+		background-image: url(../../img/bg-pattern-1.png)
+		background-size: cover
+		background-repeat: no-repeat
+		background-position: center top
+
+.article
+	margin-top: 50px
+	text-align: left
+	justify-content: flex-start
+	&__date
+		font-size: 15px
+		text-align: left
+		margin-bottom: 15px
+	&__title
+		font-size: 26px
+		border-bottom: 1px solid $fontColor
+		text-align: left
+		line-height: 1.25
+		display: inline
+		&:hover
+			border-bottom: 1px solid transparent
+	&__info
+		text-align: left
+		margin-top: 15px
+
++r($desktop)
+	.fullpage.fullpage--kaleidoscope
+		.right
+			padding: 50px 30px
+	.article
+		margin-top: 25px
+
++r($tablet)
+	.fullpage.fullpage--kaleidoscope
+		h1
+			margin: 15px 0 0 0
+		.left
+			position: static
+			min-height: 50vh
+			height: auto
+		.right
+			margin-left: 0
+			padding: 25px 25px 50px 25px
+	.article
+		margin-top: 25px
+		&__info
+			display: none
+			
++r($mobile)
+	.article
+		&__title
+			font-size: 18px
+		&__date
+			margin-bottom: 5px

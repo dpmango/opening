@@ -1,0 +1,35 @@
+.fullpage
+	display: flex
+	align-items: center
+	height: 100vh
+	background: #d0cfcd
+	justify-content: space-between
+	.left
+		width: 50%
+		height: 100%
+	.right
+		width: 50%
+		height: 100%
+
+// +r($desktop)
+
++r($tablet)
+	.fullpage
+		flex-wrap: wrap
+		padding-top: 70px
+		.left
+			width: 100%
+			height: auto
+		.right
+			width: 100%
+			height: auto
+
++r($mobile)
+	.contacts__link
+		font-size: 24px
+	p
+		font-size: 16px
+
+.ymaps-2-1-62-copyrights-pane,
+.ymaps-2-1-62-controls-pane
+	display: none !important
