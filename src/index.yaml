@@ -7,6 +7,8 @@ PageList:
   ready: 10
 - file: kaleidoscope.html
   ready: 10
+- file: news.html
+  ready: 10
   
 - file: page.html
   ready: 0
