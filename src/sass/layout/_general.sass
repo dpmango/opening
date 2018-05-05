@@ -1,6 +1,9 @@
 *
   box-sizing: border-box
   outline: none
+  margin: 0
+  padding: 0
+  transition: all $transitionSpeed $ease
 
 a
   color: inherit
@@ -12,17 +15,6 @@ ul
   list-style: none
   li
     display: inline-block
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-h7,
-p
-  margin: 0
-  padding: 0
 
 body, html
   background: white
@@ -46,10 +38,10 @@ body, html
     display: flex
     flex-direction: column
     // header offset ex
-    padding-top: 100px
+    // padding-top: 100px
 
 .container
-  max-width: 1200px
+  max-width: 1280px
   width: 100%
   margin-left: auto
   margin-right: auto
@@ -72,3 +64,9 @@ body, html
   padding: 5px
   font-size: 12px
   border-bottom-left-radius: 5px
+
+h1
+  font-family: 'TrajanPro3-Regular'
+  font-size: 48px
+  color: $fontColor
+  line-height: 1.25

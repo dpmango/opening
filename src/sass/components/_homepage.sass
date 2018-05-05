@@ -1,0 +1,56 @@
+.firstscreen
+	padding: 110px 0 0 0
+	height: 100vh
+	background: url(../../img/bg-1.jpg) center top no-repeat
+	background-size: cover
+	h1
+		text-align: center
+		font-weight: 400
+		max-width: 1050px
+		text-align: center
+		margin: 0 auto
+		
+.homepage-info
+	padding: 40px 0
+	// background: url(../../img/bg-pattern.jpg) center center no-repeat
+	background-color: #d0cfcd
+	background-image: url(../../img/bg-pattern-2.png)
+	background-size: auto
+	background-position: center
+	background-repeat: repeat
+	
+	text-align: center
+	img
+		max-width: 405px
+		height: auto
+		width: 90%
+		margin: 40px auto
+	p
+		width: 100%
+		max-width: 570px
+		line-height: 1.3
+		font-size: 20px
+		text-align: center
+		margin: 0 auto
+		padding: 30px 0
+		&:nth-child(even)
+			margin: 0 auto
+		&:nth-child(odd)
+			margin-left: 0
+		&:nth-child(4n-1)
+			margin-right: 0
+			margin-left: auto
+			
++r($tablet)
+	.firstscreen
+		height: auto
+		padding-bottom: 300px
+		background-position: center bottom -50px
+		h1
+			font-size: 30px
+	.homepage-info
+		padding: 20px 0
+		p
+			max-width: 100%
+			padding: 10px 0
+			text-align: left

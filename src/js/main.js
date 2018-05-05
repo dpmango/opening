@@ -100,14 +100,14 @@ $(document).ready(function(){
 
 
   // HAMBURGER TOGGLER
-  _document.on('click', '[js-hamburger]', function(){
+  _document.on('click', '.hamburger', function(){
     $(this).toggleClass('is-active');
-    $('.mobile-navi').toggleClass('is-active');
+    $('.header__wrapper').toggleClass('is-active');
   });
 
   function closeMobileMenu(){
-    $('[js-hamburger]').removeClass('is-active');
-    $('.mobile-navi').removeClass('is-active');
+    $('.hamburger').removeClass('is-active');
+    $('.header__wrapper').removeClass('is-active');
   }
 
   // SET ACTIVE CLASS IN HEADER

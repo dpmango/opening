@@ -1,6 +1,7 @@
 .hamburger
-  padding: 10px
-  margin-right: -10px
+  // padding: 10px
+  // margin-right: -10px
+  display: flex;
   display: inline-block
   cursor: pointer
   transition-property: opacity, filter
@@ -16,7 +17,7 @@
     opacity: 0.7
 
 .hamburger-box
-  width: 40px
+  width: 30px
   height: 24px
   display: inline-block
   position: relative
@@ -25,19 +26,19 @@
   display: block
   top: 50%
   margin-top: -2px
-  width: 40px
+  width: 30px
   height: 4px
-  background-color: #000
-  border-radius: 4px
+  background-color: #897343
+  border-radius: 0
   position: absolute
   transition-property: transform
   transition-duration: 0.15s
   transition-timing-function: ease
   &::before, &::after
-    width: 40px
+    width: 30px
     height: 4px
-    background-color: #000
-    border-radius: 4px
+    background-color: #897343
+    border-radius: 0
     position: absolute
     transition-property: transform
     transition-duration: 0.15s

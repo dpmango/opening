@@ -1,58 +1,153 @@
-/* HEADER
+// HEADER
 .header
-  position: absolute
+  position: fixed
+  z-index: 1000
   top: 0
   right: 0
   left: 0
-  background: #f5f5f5
+  width: 100%
+  background: $fontColor
+  padding: 21px 0
   &__wrapper
     display: flex
     align-items: center
-    height: 70px
-
+    justify-content: space-between
   &__logo
-    flex: 0 0 auto
-    font-size: 35px
-    padding-right: 30px
-
-  &__menu
-    flex: 0 1 auto
+    font-size: 28px
+    color: $colorYellow
+    line-height: 1
     display: flex
-    align-items: center
+    margin-right: 20px
+  &__phone
+    color: $colorYellow
     font-size: 18px
-    margin: 0 auto
-    padding: 0
+    min-width: 165px
+    margin-left: 20px
+    &:hover
+      color: $colorWhite
+  &__menu
+    display: flex
+    justify-content: center
+    width: 100%
+    align-items: center
     li
-      display: inline-block
-      margin-right: 30px
-    a
-      transition: color .25s $ease
-      &:hover
-        color: tomato
+      margin: 0 8px
+      text-align: center
+    
+  &__menu-link
+    font-size: 18px
+    color: $colorWhite
+    text-decoration: none
+    margin: 0 auto
+    text-align: center
+    &:hover,
+    &.active
+      color: $colorYellow
 
-  &__cta
-    margin-left: auto
-    padding-left: 30px
++r($desktop1168)
+  .header
+    &__logo
+      font-size: 24px
+    &__menu-link
+      font-size: 16px
+    &__phone
+      font-size: 16px
+      min-width: 145px
 
-  &__hamburger
-    // display: none
-    padding-left: 20px
-
+.mobile-visible
+  display: none
+.mobile-hidden
+  display: block
 
 +r($desktop)
   .header
-    &__cta
-      display: none
-
-+r($tablet)
-  .header
-    &__menu
-      display: none
-    &__hamburger
-      margin-left: auto
-      display: block
-
-+r($mobile)
-  .header
+    .container
+      padding-left: 20px
+      padding-right: 20px
     &__logo
-      font-size: 30px
+      font-size: 16px
+      margin-right: 5px
+    &__menu-link
+      font-size: 14px
+    &__phone
+      font-size: 14px
+      margin-left: 5px
+      min-width: 125px
+    &__menu
+      li
+        margin: 0 3px
++r($tablet)
+  .mobile-visible
+    display: block
+  .mobile-hidden
+    display: none
+  .hamburger
+    display: flex
+    z-index: 2
+  .header
+    padding: 15px 0
+    &__menu
+      position: fixed
+      top: -100%
+      opacity: 0
+      transition: all 0.5s $ease
+      padding-top: 0
+      padding-bottom: 30px
+      height: calc(100vh - 69px)
+      background: #000
+      background-image: url(../../img/bg-pattern-mobile.png)
+      background-position: center top
+      left: 0
+      flex-direction: column
+      flex-wrap: wrap
+      align-items: center
+      li
+        margin: 10px auto
+        width: 100%
+    &__menu-link
+      transition: all $transitionSpeed $ease
+      opacity: 0
+      width: 100%
+      font-size: 22px
+    &__logo
+      flex-wrap: wrap
+      align-items: center
+      text-align: center
+      margin: 0 auto
+      font-size: 28px
+      z-index: 2
+      .ico
+        margin: 0 auto
+      p
+        width: 100%
+        font-size: 9px
+        text-transform: none
+        margin-top: 3px
+    &__phone
+      position: fixed
+      top: -50px
+      margin: 0 auto
+      left: 50%
+      transform: translateX(-50%)
+      z-index: 2
+      transition: all 0.5s $ease
+      font-size: 22px
+      min-width: 200px
+      text-align: center
+    &__mail
+      font-size: 24px
+      color: $colorBrown
+      display: flex
+      z-index: 2
+      &:hover
+        opacity: 0.7
+    &__wrapper
+      &.is-active
+        .header__menu
+          top: 69px
+          opacity: 1
+        .header__menu-link
+          opacity: 1
+        .header__phone
+          top: calc(100% - 40px)
+          
