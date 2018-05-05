@@ -1,0 +1,70 @@
+.fullpage
+	display: flex
+	align-items: center
+	height: 100vh
+	background: #333
+	outline: 1px solid red
+	// padding-top: 65px
+	justify-content: space-between
+	.left
+		width: 50%
+		height: 100%
+		background-color: #d0cfcd
+		background-image: url(../../img/bg-pattern-1.png)
+		background-size: cover
+		background-repeat: no-repeat
+		background-position: center top
+		padding: 25px
+		display: flex
+		align-items: center
+		justify-content: center
+		flex-wrap: wrap
+		flex-direction: column
+		p
+			margin-top: 30px
+	.right
+		width: 50%
+		height: 100%
+		background: #fff
+#ya-map
+	width: 100%
+	min-height: 100% !important
+.contacts__link
+	font-size: 48px
+	color: $fontColor
+	border-bottom: 1px solid transparent
+	line-height: 1
+	margin: 15px auto 0
+	&:hover
+		border-bottom: 1px solid $fontColor
+
++r($desktop)
+	.contacts__link
+		font-size: 36px
++r($tablet)
+	.contacts__link
+		font-size: 30px
+	.fullpage
+		flex-wrap: wrap
+		padding-top: 70px
+		.left
+			width: 100%
+			height: auto
+			align-self: flex-start
+		.right
+			width: 100%
+			min-height: 500px
+			height: 50%
+
++r($mobile)
+	.contacts__link
+		font-size: 24px
+	.fullpage
+		.left
+			p
+				font-size: 16px
+				margin-top: 15px
+
+.ymaps-2-1-62-copyrights-pane,
+.ymaps-2-1-62-controls-pane
+	display: none !important

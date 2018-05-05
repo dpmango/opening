@@ -18,7 +18,7 @@ $(document).ready(function(){
     // initPopups();
     initScrollMonitor();
     initLazyLoad();
-    // initMap();
+    initMap();
 
     // development helper
     _window.on('resize', debounce(setBreakpoint, 200))
@@ -343,7 +343,7 @@ $(document).ready(function(){
       ymaps.ready(function(){
         myMap = new ymaps.Map("ya-map", {
           // нужно получить контакты с яндекс карты нужного адресса
-          center: [55.739483, 37.719603],
+          center: [55.743857, 37.601960],
           zoom: 14
         });
 
@@ -357,15 +357,15 @@ $(document).ready(function(){
 
         myMap.behaviors.disable('scrollZoom');
 
-        myPlacemark = new ymaps.Placemark([55.739483, 37.719603], {
+        myPlacemark = new ymaps.Placemark([55.743857, 37.601960], {
           hintContent: 'Наш офис'
         },
         {
           // стилизация маркера
           iconLayout: 'default#image',
-          iconImageHref: 'img/mapMarker.png',
-          iconImageSize: [50, 70],
-          iconImageOffset: [-10, -50]
+          iconImageHref: 'img/placeholder.svg',
+          iconImageSize: [38, 55],
+          iconImageOffset: [-5, -35]
         });
 
         myMap.geoObjects.add(myPlacemark);
