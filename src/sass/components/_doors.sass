@@ -1,0 +1,67 @@
+.doors
+	position: fixed
+	width: 100vw
+	height: 100vh
+	top: 0
+	left: 0
+	z-index: 9999
+	overflow: hidden
+	overflow-x: none
+	&.active
+		.left
+			left: -100%
+		.right
+			right: -100%
+	.left
+		background: url(../../img/left-door.jpg) right center no-repeat
+		background-size: cover
+		transition: all 1.5s ease-in-out
+		width: 50%
+		height: 100%
+		position: absolute
+		left: 0
+		top: 0
+	.right
+		background: url(../../img/right-door.jpg) left center no-repeat
+		background-size: cover
+		transition: all 1.5s ease-in-out
+		width: 50%
+		height: 100%
+		position: absolute
+		right: 0
+		top: 0
+		
+.mousey
+	position: absolute
+	bottom: 100px
+	left: 50%
+	transform: translateX(-50%)
+
+.scroller
+	width: 30px
+	height: 30px
+	border-radius: 0
+	background: url(../../img/scroll.svg) center center no-repeat
+	background-size: contain
+	
+	animation-name: scroll
+	animation-duration: 1.5s
+	animation-timing-function: cubic-bezier(0.15, 0.41, 0.69, 0.94)
+	animation-iteration-count: infinite
+
+@keyframes scroll
+	0%
+		opacity: 0
+	10%
+		transform: translateY(0)
+		opacity: 1
+	100%
+		transform: translateY(15px)
+		opacity: 0
+
++r($tablet)
+	.doors
+		.left
+			background: url(../../img/left-door-mobile.jpg) right center no-repeat
+		.right
+			background: url(../../img/right-door-mobile.jpg) left center no-repeat

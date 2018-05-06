@@ -59,6 +59,16 @@ $(document).ready(function(){
   }
 
 
+  //////////
+  // DOORS SCROLL OPEN
+  //////////
+
+  _window.scroll(function(){
+      $('.doors').addClass('active', $(this).scrollTop() > 0).delay(1000).fadeOut();
+      // $(body).css('overflow', 'auto');
+  });
+
+
   // Prevent # behavior
 	_document
     .on('click', '[href="#"]', function(e) {
