@@ -3,7 +3,12 @@
 .fullpage
 	.one-item
 		h1
-			margin: 30px auto 30px 0
+			margin: 30px auto 5px 0
+	.left.left--team
+		background-position: left top
+		margin-top: 50px
+		img
+			display: none
 
 .one-item
 	min-height: 100vh
@@ -15,5 +20,22 @@
 		p
 			text-align: left
 			margin-top: 25px
+
++r($tablet)
+	.fullpage
+		.one-item
+			h1
+				margin: 15px auto 5px 0
+		.left.left--team
+			background-position: left top
+			background: none
+			margin-top: 0
+			img
+				display: block
+				width: 100%
+	.one-item
+		min-height: 0
+		&__top-info
+			margin-top: 15px
 
 // END ONE-ITEM STYLE

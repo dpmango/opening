@@ -11,8 +11,15 @@ PageList:
   ready: 10
 - file: news-one.html
   ready: 10
-  
-- file: page.html
-  ready: 0
-- file: styleguide.html
-  ready: 100
+- file: team-bucheyar.html
+  ready: 10
+- file: team-eleonora.html
+  ready: 10
+- file: team-mihail.html
+  ready: 10
+- file: team-svetlana.html
+  ready: 10
+- file: team-vladimir.html
+  ready: 10
+- file: team-vladimir-(ul,ol).html
+  ready: 10
