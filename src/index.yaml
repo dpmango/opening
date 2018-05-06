@@ -11,6 +11,8 @@ PageList:
   ready: 10
 - file: news-one.html
   ready: 10
+- file: specialists.html
+  ready: 10
 - file: team-bucheyar.html
   ready: 10
 - file: team-eleonora.html
