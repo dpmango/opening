@@ -1,6 +1,7 @@
+// BEGIN FULLPAGE--EDITABLE STYLE
+
 .fullpage.fullpage--editable
 	align-items: flex-start
-	// margin-top: 40px
 	height: auto
 	h1
 		margin: 40px 0 0 0
@@ -8,6 +9,11 @@
 		position: fixed
 		height: 100vh
 		background-size: cover
+		background-position: center
+		// &.left--news
+		// 	background-image: url(../../img/bg-news.jpg)
+		// &.left--kaleidoscope
+		// 	background-image: url(../../img/bg-kaleidoscope.jpg)
 	.right
 		height: auto
 		margin-left: 50vw
@@ -17,15 +23,6 @@
 		background-size: cover
 		background-repeat: no-repeat
 		background-position: center top
-	&.fullpage--news
-		.left
-			background: url(../../img/bg-news.jpg) center center no-repeat
-			background-size: cover
-			
-	&.fullpage--kaleidoscope
-		.left
-			background: url(../../img/bg-kaleidoscope.jpg) center center no-repeat
-			background-size: cover
 			
 
 .article
@@ -46,12 +43,12 @@
 			border-bottom: 1px solid transparent
 	&__info
 		text-align: left
-		margin-top: 15px
+		margin-top: 25px
 
 +r($desktop)
 	.fullpage.fullpage--editable
 		.right
-			padding: 50px 30px
+			padding: 60px 30px
 	.article
 		margin-top: 25px
 
@@ -77,3 +74,5 @@
 			font-size: 18px
 		&__date
 			margin-bottom: 5px
+
+// END FULLPAGE--EDITABLE STYLE

@@ -9,6 +9,8 @@ PageList:
   ready: 10
 - file: news.html
   ready: 10
+- file: news-one.html
+  ready: 10
   
 - file: page.html
   ready: 0
