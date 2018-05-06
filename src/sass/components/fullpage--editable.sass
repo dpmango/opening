@@ -23,7 +23,7 @@
 		background-size: cover
 		background-repeat: no-repeat
 		background-position: center top
-			
+
 
 .article
 	margin-top: 50px
@@ -39,8 +39,9 @@
 		text-align: left
 		line-height: 1.25
 		display: inline
+		transition: .25s $ease
 		&:hover
-			border-bottom: 1px solid transparent
+			border-color: transparent
 	&__info
 		text-align: left
 		margin-top: 25px
@@ -67,7 +68,7 @@
 		margin-top: 25px
 		&__info
 			display: none
-			
+
 +r($mobile)
 	.article
 		&__title

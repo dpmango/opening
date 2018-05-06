@@ -6,7 +6,7 @@ header.header
         span.hamburger-box
           span.hamburger-inner
 
-      a(href="/homepage.html").header__logo
+      a(href="homepage.html").header__logo
         //- +icon('ico-logotype')
         +icon('ico-logotype')
         p.mobile-visible Центр Повышения Качества Жизни
@@ -14,15 +14,15 @@ header.header
         //- +icon('ico-email')
         +icon('ico-email')
       ul.header__menu
+        li.is-active
+          a.header__menu-link(href="homepage.html") О центре
         li
-          a.header__menu-link.active(href="/homepage.html") О центре
+          a.header__menu-link(href="specialists.html") Специалисты
         li
-          a.header__menu-link(href="/specialists.html") Специалисты
+          a.header__menu-link(href="news.html") Новости
         li
-          a.header__menu-link(href="/news.html") Новости
+          a.header__menu-link(href="kaleidoscope.html") Калейдоскоп
         li
-          a.header__menu-link(href="/kaleidoscope.html") Калейдоскоп
-        li
-          a.header__menu-link(href="/contacts.html") Контакты
+          a.header__menu-link(href="contacts.html") Контакты
       a(href="#").header__phone +7 (495) 665-93-77
 // HEADER :: END

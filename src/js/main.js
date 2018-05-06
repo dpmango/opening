@@ -265,7 +265,7 @@ $(document).ready(function(){
 
       $el.css({
         visibility : 'visible',
-        opacity : .5
+        opacity : 0.5
       });
 
       anime({
@@ -277,7 +277,8 @@ $(document).ready(function(){
 
       anime({
         targets: this.newContainer,
-        opacity: 1,
+        opacity: [0.5, 1],
+        delay: 100,
         easing: easingSwing, // swing
         duration: 300,
         complete: function(anim) {
@@ -285,6 +286,7 @@ $(document).ready(function(){
           _this.done();
         }
       });
+
     }
   });
 
