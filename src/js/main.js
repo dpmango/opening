@@ -63,9 +63,15 @@ $(document).ready(function(){
   // DOORS SCROLL OPEN
   //////////
 
-  _window.scroll(function(){
-      $('.doors').addClass('active', $(this).scrollTop() > 0).delay(1000).fadeOut();
-      // $(body).css('overflow', 'auto');
+  _window.scroll(function(e){
+      e.preventDefault();
+      if ($('.doors').hasClass('active')) {
+        $('body').css('overflow', 'auto');
+      }
+      else {
+        $('body').css('overflow', 'hidden'); 
+        $('.doors').addClass('active', $(this).scrollTop() > 0).delay(1000).fadeOut();
+      }
   });
 
 
