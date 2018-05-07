@@ -65,22 +65,28 @@ $(document).ready(function(){
 
   // disableScroll();
   var isDoorsOpened = false;
-  _window.on('scroll', function(e){
+  $('body').css({
+    'overflow': 'hidden',
+    'height': 'calc(100vh + 1px)'
+  });
+  _window.on('scroll', throttle(function(e){
     // wait till the page is ready
     if ( $('body.pace-done').length > 0 ){
       // if loader is still visible
       if ( !isDoorsOpened ){
         $('.doors').addClass('active').delay(1000).fadeOut(200, function(){
+          console.log('seting attr')
           isDoorsOpened = true
+          $('body').attr('style', '');
         });
-        preventAsScrollTop();
+        // preventAsScrollTop();
       } else {
         // do nothing
       }
     } else {
-      preventAsScrollTop();
+      // preventAsScrollTop();
     }
-  });
+  }, 100));
 
   var preventAsScrollTop = throttle(function(){
     anime({
