@@ -63,10 +63,33 @@ $(document).ready(function(){
   // DOORS SCROLL OPEN
   //////////
 
-  _window.scroll(function(){
-      $('.doors').addClass('active', $(this).scrollTop() > 0).delay(1000).fadeOut();
-      // $(body).css('overflow', 'auto');
+  // disableScroll();
+  var isDoorsOpened = false;
+  _window.on('scroll', function(e){
+    // wait till the page is ready
+    if ( $('body.pace-done').length > 0 ){
+      // if loader is still visible
+      if ( !isDoorsOpened ){
+        $('.doors').addClass('active').delay(1000).fadeOut(200, function(){
+          isDoorsOpened = true
+        });
+        preventAsScrollTop();
+      } else {
+        // do nothing
+      }
+    } else {
+      preventAsScrollTop();
+    }
   });
+
+  var preventAsScrollTop = throttle(function(){
+    anime({
+      targets: "html, body",
+      scrollTop: 0,
+      easing: easingSwing, // swing
+      duration: 10
+    });
+  }, 100, {leading:false, trailing:true})
 
 
   // Prevent # behavior

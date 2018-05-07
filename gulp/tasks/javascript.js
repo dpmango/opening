@@ -25,7 +25,8 @@ gulp.task('javascript:vendor', function() {
 
 gulp.task('javascript:app', function() {
   return gulp.src([
-      config.src.js + '/*.js'
+      config.src.js + '/*.js',
+      '!./src/js/pace.min.js'
      ])
     .pipe(plumber({ errorHandler: config.errorHandler }))
     .pipe(concat('app.js'))
@@ -33,8 +34,20 @@ gulp.task('javascript:app', function() {
     .pipe(gulp.dest(config.dest.js));
 });
 
+gulp.task('javascript:pace', function() {
+  return gulp.src([
+      config.src.js + '/pace.min.js'
+     ])
+    .pipe(plumber({ errorHandler: config.errorHandler }))
+    // .pipe(concat('app.js'))
+    // .pipe(config.production ? uglifyJs() : util.noop())
+    .pipe(gulp.dest(config.dest.js));
+});
+
+
 gulp.task('javascript', [
   'javascript:vendor',
+  'javascript:pace',
   'javascript:app'
 ]);
 
