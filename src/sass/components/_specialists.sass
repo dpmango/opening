@@ -1,11 +1,9 @@
 .specialists
 	&__grid
 		display: flex
-		height: 100vh
+		height: calc(100vh - 70px)
 		max-height: 100vh
 		width: 100%
-		outline: 1px solid red
-		padding-top: 60px
 		background: #333
 		flex-wrap: wrap
 		justify-content: space-between
@@ -26,9 +24,9 @@
 			top: 0
 			left: 0
 			position: absolute
-			z-index: 1
-			opacity: 0
-			background: rgba(0,0,0,0.2)
+			z-index: 3
+			opacity: 1
+			background: rgba(0,0,0,0.6)
 			transition: all 0.5s ease-in-out
 		img
 			position: absolute
@@ -36,6 +34,7 @@
 			left: 50%
 			transform: translate(-50%,-50%)
 			min-width: 100%
+			max-width: 100%
 			min-height: 100%
 			width: auto
 			height: auto
@@ -45,9 +44,7 @@
 			backface-visibility: hidden
 		&:hover
 			&:after
-				opacity: 1
-			img
-				transform: translate(-50%,-50%) scale3d(1.05, 1.05, 1)
+				opacity: 0
 	&__info
 		position: absolute
 		left: 0
@@ -66,31 +63,41 @@
 	&__title
 		font-size: 24px
 
-+r($desktop)
++r($desktop1168)
 	.specialists
 		&__grid
-			padding-top: 60px
+			height: calc(100vh - 60px)
 
 +r($tablet)
 	.specialists
 		&__grid
-			padding-top: 70px
 			height: auto
-			max-height: 100%
+			// max-height: 100%
 		&__item
 			width: 100%
 			border: none
 			border-bottom: 2px solid $fontColor
+			padding-bottom: 60px
+			min-height: 380px
+			display: block
 			&.width50
 				width: 100%
 			img
 				width: 100%
 				position: static
-				top: 50%
-				left: 50%
+				min-height: 320px
+				top: 0%
+				left: 0%
 				transform: translate(0%,0%)
-			&:hover
-				img
-					transform: scale3d(1.05, 1.05, 1)
+				// display: none
+			&:after
+				opacity: 0
+				display: none
 		&__info
+			position: absolute
+			z-index: 5
 			padding: 10px 15px 7px 15px
+			display: block
+			bottom: 0px
+			
+			// margin-top: -53px

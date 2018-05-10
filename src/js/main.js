@@ -84,7 +84,7 @@ $(document).ready(function() {
         if ($('body.pace-done').length > 0) {
             // if loader is still visible
             if (!isDoorsOpened) {
-                $('.doors').addClass('active').delay(1000).fadeOut(200, function() {
+                $('.doors').addClass('active').delay(2500).fadeOut(200, function() {
                     console.log('seting attr')
                     isDoorsOpened = true
                     $('body').attr('style', '');
