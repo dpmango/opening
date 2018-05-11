@@ -36,11 +36,31 @@ $(document).ready(function() {
     pageReady();
 
 
-    // some plugins work best with onload triggers
-    _window.on('load', function() {
-        // your functions
-    })
 
+    // PRELOADER
+    var interval = setInterval(function(){
+      if ($('body.pace-done').length > 0) {
+        if (typeof(Storage) !== "undefined") {
+          if(localStorage.isFirstLoadComplete==="false"){
+            localStorage.setItem("isFirstLoadComplete", "true");
+            removePreloder(700)
+          } else {
+            removePreloder()
+          }
+        } else {
+          removePreloder(700)
+        }
+      }
+    }, 100);
+
+    function removePreloder(timeout){
+      var sTimeout = timeout || 10
+      console.log(sTimeout)
+      setTimeout(function(){
+        $('#preloader').fadeOut();
+        clearInterval(interval)
+      }, sTimeout)
+    }
 
     //////////
     // COMMON
@@ -60,16 +80,6 @@ $(document).ready(function() {
 
 
     //////////
-    // WINDW ONLOAD
-    //////////
-
-    window.onload = function() {
-        setTimeout(function() {
-            $('#preloader').fadeOut();
-        }, 1000);
-    }
-
-    //////////
     // DOORS SCROLL OPEN
     //////////
 
@@ -84,11 +94,7 @@ $(document).ready(function() {
         if ($('body.pace-done').length > 0) {
             // if loader is still visible
             if (!isDoorsOpened) {
-                $('.doors').addClass('active').delay(2500).fadeOut(200, function() {
-                    console.log('seting attr')
-                    isDoorsOpened = true
-                    $('body').attr('style', '');
-                });
+                openDoors();
                 // preventAsScrollTop();
             } else {
                 // do nothing
@@ -97,6 +103,19 @@ $(document).ready(function() {
             // preventAsScrollTop();
         }
     }, 100));
+
+    function openDoors(){
+      $('.doors').addClass('active').delay(1000).fadeOut(200, function() {
+          isDoorsOpened = true
+          $('body').attr('style', '');
+      });
+    }
+
+    _document.on('click', '.doors', function(){
+      if ($('body.pace-done').length > 0) {
+        openDoors();
+      }
+    })
 
     var preventAsScrollTop = throttle(function() {
         anime({
