@@ -13,6 +13,7 @@
     align-items: center
     justify-content: space-between
   &__logo
+    flex: 0 0 auto
     font-size: 28px
     color: $colorYellow
     line-height: 1
@@ -97,7 +98,7 @@
       transition: all 0.5s $ease
       padding-top: 0
       padding-bottom: 30px
-      height: calc(100% - 69px)
+      height: calc(100vh - 73px)
       background: #000
       background-image: url(../../img/bg-pattern-mobile.png)
       background-size: contain
@@ -116,7 +117,7 @@
       width: 100%
       font-size: 22px
     &__logo
-      flex-wrap: wrap
+      flex-direction: column
       align-items: center
       text-align: center
       margin: 0 auto
@@ -125,7 +126,8 @@
       .ico
         margin: 0 auto
       p
-        width: 100%
+        display: block
+        // width: 100%
         font-size: 9px
         text-transform: none
         margin-top: 3px
@@ -152,12 +154,12 @@
     &__wrapper
       &.is-active
         .header__menu
-          top: 69px
+          top: 73px
           opacity: 1
         .header__menu-link
           opacity: 1
         .header__phone
-          top: calc(100% - 40px)
+          top: calc(100vh - 40px)
 
 +r($mobile)
   .header
@@ -168,11 +170,11 @@
     &__mail
       font-size: 18px
     &__menu
-      height: calc(100% - 67px)
+      height: calc(100vh - 68px)
     &__wrapper
       &.is-active
         .header__menu
-          top: 67px
+          top: 68px
     .hamburger-box
       height: 20px
       width: 22px

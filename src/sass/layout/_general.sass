@@ -3,7 +3,7 @@
   outline: none
   margin: 0
   padding: 0
-  // transition: all $transitionSpeed $ease
+  -webkit-overflow-scrolling: touch
 
 a
   color: inherit
@@ -102,3 +102,14 @@ p
 +r(878)
   .page__content
     padding-top: 72px
+
+
+.body-lock
+  height: 100%
+  overflow: hidden
+  position: fixed
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  width: 100%

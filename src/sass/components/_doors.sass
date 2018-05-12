@@ -14,7 +14,7 @@
 		z-index: 2
 		opacity: 0.3
 		background: #000
-		background: linear-gradient(to bottom, rgba(125,185,232,0) 0%,rgba(0,0,0,1) 100%)
+		background: linear-gradient(to bottom, rgba(125,185,232,0) 0%,rgba(0,0,0,.99) 100%)
 		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#007db9e8', endColorstr='#000000',GradientType=0 )
 	.under-overlay
 		position: absolute
@@ -22,30 +22,17 @@
 		height: 100%
 		z-index: -1
 		background: #000
-		// animation-name: overlay
-		animation-duration: 2.5s
-		animation-timing-function: cubic-bezier(0.74,0.07,0.52,0.76)
 
 	&.active
 		.under-overlay
 			animation-name: overlay
 			opacity: 0
 		.left
-			// left: -100%
 			transform: translate3d(-100%,0,0)
-			// animation-duration: 2.5s
-			// animation-name: left-door
-			// animation-timing-function: cubic-bezier(0.74,0.07,0.52,0.76)
-			// animation-timing-function: cubic-bezier(0.74,0.07,0.52,0.76)
 			transition: transform 2000ms easeInQuart
 			// cubic-bezier(0.6, 0.04, 0.98, 0.355)
 		.right
-			// right: -100%
 			transform: translate3d(100%,0,0)
-			// animation-duration: 2.5s
-			// animation-name: right-door
-			// animation-timing-function: cubic-bezier(0.74,0.07,0.52,0.76)
-			// animation-timing-function: cubic-bezier(0.74,0.07,0.52,0.76)
 			transition: transform 2000ms easeInQuart
 			// cubic-bezier(0.6, 0.04, 0.98, 0.355)
 		.mousey
@@ -53,50 +40,29 @@
 	.left
 		background: url(../../img/left-door.jpg) right center no-repeat
 		background-size: cover
-		transition: all 1.5s ease-in-out
+		// transition: all 1.5s ease-in-out
 		width: 50%
 		height: 100%
 		position: absolute
 		z-index: 2
 		left: 0
 		top: 0
-		// animation-timing-function: cubic-bezier(0.74,0.07,0.52,0.76)
-		// animation-name: left-door
-		animation-duration: 2.0s
 	.right
 		background: url(../../img/right-door.jpg) left center no-repeat
 		background-size: cover
-		transition: all 1.5s ease-in-out
+		// transition: all 1.5s ease-in-out
 		width: 50%
 		height: 100%
 		position: absolute
 		z-index: 2
 		right: 0
 		top: 0
-		// animation-timing-function: cubic-bezier(0.74,0.07,0.52,0.76)
-		// animation-name: right-door
-		animation-duration: 2.0s
 
 @keyframes overlay
 	0%
 		opacity: 1
 	100%
 		opacity: 0
-
-// @keyframes left-door
-// 	0%
-// 		left: 0
-// 	50%
-// 		left: -30%
-// 	100%
-// 		left: -100%
-// @keyframes right-door
-// 	0%
-// 		right: 0
-// 	50%
-// 		right: -30%
-// 	100%
-// 		right: -100%
 
 .mousey
 	transition: all 0.5s ease-in-out

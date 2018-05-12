@@ -9,14 +9,16 @@
 		position: fixed
 		height: calc(100vh - 70px)
 		background-size: contain
-		background-repeat: repeat
+		background-repeat: no-repeat
 		background-position: center top
 		overflow: hidden
 		&.left--team
 			background-size: cover
 			background-position: center
-			
-		
+		&--cover
+			background-size: cover
+			background-position: center
+
 		// &.left--news
 		// 	background-image: url(../../img/bg-news.jpg)
 		// &.left--kaleidoscope
@@ -66,6 +68,10 @@ video
 		text-align: left
 		margin-top: 25px
 
++r($desktop1168)
+	.fullpage.fullpage--editable
+		.left
+			height: calc(100vh - 60px)
 +r($desktop)
 	.fullpage.fullpage--editable
 		.right
@@ -82,10 +88,12 @@ video
 		.left
 			position: static
 			min-height: 0
-			height: auto
+			background-size: cover
+			height: 100vw
+			// max-width: 400px
 			&.left--team
 				background-image: none !important
-				
+
 		.right
 			margin-left: 0
 			margin: 0 auto !important
