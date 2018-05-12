@@ -25,25 +25,29 @@
 		// animation-name: overlay
 		animation-duration: 2.5s
 		animation-timing-function: cubic-bezier(0.74,0.07,0.52,0.76)
-		
+
 	&.active
 		.under-overlay
 			animation-name: overlay
 			opacity: 0
 		.left
-			left: -100%
+			// left: -100%
+			transform: translate3d(-100%,0,0)
 			// animation-duration: 2.5s
 			// animation-name: left-door
 			// animation-timing-function: cubic-bezier(0.74,0.07,0.52,0.76)
 			// animation-timing-function: cubic-bezier(0.74,0.07,0.52,0.76)
-			transition: all 2000ms cubic-bezier(0.6, 0.04, 0.98, 0.355)
+			transition: transform 2000ms easeInQuart
+			// cubic-bezier(0.6, 0.04, 0.98, 0.355)
 		.right
-			right: -100%
+			// right: -100%
+			transform: translate3d(100%,0,0)
 			// animation-duration: 2.5s
 			// animation-name: right-door
 			// animation-timing-function: cubic-bezier(0.74,0.07,0.52,0.76)
 			// animation-timing-function: cubic-bezier(0.74,0.07,0.52,0.76)
-			transition: all 2000ms cubic-bezier(0.6, 0.04, 0.98, 0.355)
+			transition: transform 2000ms easeInQuart
+			// cubic-bezier(0.6, 0.04, 0.98, 0.355)
 		.mousey
 			opacity: 0
 	.left
@@ -108,7 +112,7 @@
 	border-radius: 0
 	background: url(../../img/scroll.svg) center center no-repeat
 	background-size: contain
-	
+
 	animation-name: scroll
 	animation-duration: 2s
 	animation-timing-function: cubic-bezier(0.15, 0.41, 0.69, 0.94)
@@ -130,8 +134,7 @@
 		.left
 			background: url(../../img/left-door-mobile.jpg) right center no-repeat
 			background-size: cover
-			
+
 		.right
 			background: url(../../img/right-door-mobile.jpg) left center no-repeat
 			background-size: cover
-			

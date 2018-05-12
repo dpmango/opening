@@ -105,7 +105,7 @@ $(document).ready(function() {
     }, 100));
 
     function openDoors(){
-      $('.doors').addClass('active').delay(1000).fadeOut(200, function() {
+      $('.doors').addClass('active').delay(2500).fadeOut(200, function() {
           isDoorsOpened = true
           $('body').attr('style', '');
       });
