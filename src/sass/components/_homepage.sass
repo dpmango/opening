@@ -3,7 +3,7 @@
 .firstscreen
 	padding: 40px 0 20px 0
 	height: 100vh
-	background: url(../../img/bg-1.jpg) center top no-repeat
+	background: url(../../img/bg-1.jpg) center center no-repeat
 	background-size: cover
 	h1
 		text-align: center
@@ -45,8 +45,9 @@
 +r($tablet)
 	.firstscreen
 		height: auto
-		padding-bottom: 300px
-		background-position: center top
+		padding-top: 55px
+		padding-bottom: 250px
+		background-position: center top 
 		h1
 			font-size: 30px
 	.homepage-info
@@ -59,10 +60,15 @@
 
 +r($mobile)
 	.firstscreen
-		padding-top: 15px
-		padding-bottom: 350px
-		background-position: center top
+		padding-top: 25px
+		padding-bottom: 150px
+		background-position: center bottom
 		h1
 			font-size: 24px
+			line-height: 1.5
+			display: flex
+			min-height: 40vh
+			// outline: 1px solid red
+			align-items: center
 
 // END CONTACTS STYLE
