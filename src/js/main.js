@@ -73,7 +73,7 @@ $(document).ready(function() {
         // Viewport units buggyfill
         window.viewportUnitsBuggyfill.init({
             force: true,
-            refreshDebounceWait: 50,
+            refreshDebounceWait: 5,
             appendToBody: true
         });
     }
@@ -176,6 +176,7 @@ $(document).ready(function() {
       }
     }
 
+    var lastScroll = 0;
     function disableScroll() {
       lastScroll = _window.scrollTop();
       $('.page__content').css({
@@ -407,17 +408,17 @@ $(document).ready(function() {
     Barba.Pjax.start();
 
     Barba.Dispatcher.on('newPageReady', function(currentStatus, oldStatus, container, newPageRawHTML) {
-
         pageReady();
         closeMobileMenu();
-
     });
 
     // some plugins get bindings onNewPage only that way
     function triggerBody() {
         _window.scrollTop(0);
-        $(window).scroll();
-        $(window).resize();
+        _window.scroll();
+        _window.resize();
+
+        initScrollMonitor();
     }
 
 

@@ -91,8 +91,12 @@
     z-index: 2
   .header
     padding: 15px 0
+    .hamburger, &__logo, &__phone
+      // position: relative
+      // z-index: 2
     &__menu
       position: fixed
+      z-index: 1
       top: -100%
       opacity: 0
       transition: all 0.5s $ease
