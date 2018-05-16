@@ -99,7 +99,7 @@ $(document).ready(function() {
       });
     }
 
-    _document.on('click', '.doors', function(){
+    $('.doors').on('click', function(){
       if ($('body.pace-done').length > 0) {
         openDoors();
       }
@@ -156,11 +156,14 @@ $(document).ready(function() {
     }
 
     // BLOCK SCROLL
+    var isMenuOpened = false
     function blockScroll() {
-      if ($('.hamburger').is('.is-active') ) {
+      if ( !isMenuOpened ) {
         disableScroll();
+        isMenuOpened = true
       } else {
         enableScroll();
+        isMenuOpened = false;
       }
     }
 
