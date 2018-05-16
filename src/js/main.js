@@ -20,22 +20,11 @@ $(document).ready(function() {
         initLazyLoad();
         initMap();
 
-        // development helper
-        _window.on('resize', debounce(setBreakpoint, 200))
-
-        // AVAILABLE in _components folder
-        // copy paste in main.js and initialize here
-        // initPerfectScrollbar();
-        // initTeleport();
-        // parseSvg();
-        // revealFooter();
-        // _window.on('resize', throttle(revealFooter, 100));
+        triggerBody();
     }
 
     // this is a master function which should have all functionality
     pageReady();
-
-
 
     // PRELOADER
     var interval = setInterval(function(){
@@ -55,7 +44,6 @@ $(document).ready(function() {
 
     function removePreloder(timeout){
       var sTimeout = timeout || 10
-      console.log(sTimeout)
       setTimeout(function(){
         $('#preloader').fadeOut();
         clearInterval(interval)
@@ -421,27 +409,6 @@ $(document).ready(function() {
         initScrollMonitor();
     }
 
-
-    //////////
-    // DEVELOPMENT HELPER
-    //////////
-    function setBreakpoint() {
-        var wHost = window.location.host.toLowerCase()
-        var displayCondition = wHost.indexOf("localhost") >= 0 || wHost.indexOf("surge") >= 0
-        if (displayCondition) {
-            var wWidth = _window.width();
-
-            var content = "<div class='dev-bp-debug'>" + wWidth + "</div>";
-
-            $('.page').append(content);
-            setTimeout(function() {
-                $('.dev-bp-debug').fadeOut();
-            }, 1000);
-            setTimeout(function() {
-                $('.dev-bp-debug').remove();
-            }, 1500)
-        }
-    }
 
     //////////
     // YANDEX MAP
