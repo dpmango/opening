@@ -266,6 +266,21 @@ $(document).ready(function() {
     // SCROLLMONITOR - WOW LIKE
     ////////////
     function initScrollMonitor() {
+        // add classes first
+        $('.info__paragraphs p, .left p, .right h1').each(function(i, el){
+          $(el).addClass('wow');
+        });
+        $('.right .article').each(function(i, el){
+          $(el).addClass('wow');
+          $(el).attr('data-animation-delay', '0.'+i+'s');
+        });
+        $('.one-item__info p, one-item__info ul li').each(function(i, el){
+          var i = i + 1;
+          $(el).addClass('wow');
+          $(el).attr('data-animation-delay', '0.'+i+'s');
+        });
+
+
         $('.wow').each(function(i, el) {
 
             var elWatcher = scrollMonitor.create($(el));
